@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+ - docker
+
+before_install:
+ - docker build -t raiashish20/test-repo -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true raiashish20/test-repo npm run test
